@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://broholens.github.io</id>
     <title>zz</title>
-    <updated>2020-06-10T15:45:12.768Z</updated>
+    <updated>2020-06-10T23:46:25.998Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://broholens.github.io"/>
     <link rel="self" href="https://broholens.github.io/atom.xml"/>
@@ -10,6 +10,28 @@
     <logo>https://broholens.github.io/images/avatar.png</logo>
     <icon>https://broholens.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zz</rights>
+    <entry>
+        <title type="html"><![CDATA[git commit --amend修改commit信息后，push报错]]></title>
+        <id>https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/</id>
+        <link href="https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/">
+        </link>
+        <updated>2020-06-10T23:36:00.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="情景复现">情景复现</h3>
+<p>commit并push到远端的情况下修改commit信息</p>
+<ol>
+<li><code>git commit -m &quot;commit message here&quot;</code></li>
+<li><code>git push</code></li>
+<li><code>git commit --amend</code></li>
+<li><code>git push</code><br>
+报错如下：<br>
+<code>hint: Updates were rejected because the tip of your current branch is behind</code></li>
+</ol>
+<h3 id="解决方式">解决方式：</h3>
+<ol>
+<li><code>git push -f</code></li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://broholens.github.io/post/hello-gridea/</id>
