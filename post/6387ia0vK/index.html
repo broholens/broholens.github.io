@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="这些都需要被记录">
 <meta name="theme-color" content="#000">
-<title>git commit --amend修改commit信息后，push报错 | zz</title>
+<title>127.0.0.1、localhost、0.0.0.0 | zz</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1591872048007">
 <link rel="stylesheet" href="/media/css/muse.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="git commit --amend修改commit信息后，push报错" />
-  <meta name="keywords" content="git" />
+  <meta name="description" content="127.0.0.1、localhost、0.0.0.0" />
+  <meta name="keywords" content="localhost" />
 </head>
 
 <body>
@@ -228,12 +228,19 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
+<li><a href="#127001">127.0.0.1</a><br>
+*
 <ul>
-<li><a href="#%E6%83%85%E6%99%AF%E5%A4%8D%E7%8E%B0">情景复现</a></li>
-<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F">解决方式：</a></li>
+<li><a href="#%E7%94%A8%E9%80%94">用途</a></li>
 </ul>
 </li>
+<li><a href="#0000">0.0.0.0</a><br>
+*
+<ul>
+<li><a href="#%E7%94%A8%E9%80%94-2">用途</a></li>
+</ul>
+</li>
+<li><a href="#localhost">localhost</a></li>
 </ul>
 </li>
 </ul>
@@ -501,8 +508,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/">
-      git commit --amend修改commit信息后，push报错
+    <a class="post-title-link" href="https://broholens.github.io/post/6387ia0vK/">
+      127.0.0.1、localhost、0.0.0.0
     </a>
   </h1>
   <div class="post-meta">
@@ -519,8 +526,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://broholens.github.io/tag/d3mzgTxE2/">
-        <span>git</span>
+      <a href="https://broholens.github.io/tag/0o5IblU3T/">
+        <span>localhost</span>
       </a>
       
       
@@ -534,12 +541,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>62<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>212<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/" data-flag-title="git commit --amend修改commit信息后，push报错" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/6387ia0vK/" data-flag-title="127.0.0.1、localhost、0.0.0.0" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -548,18 +555,24 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h3 id="情景复现">情景复现</h3>
-<p>commit并push到远端的情况下修改commit信息</p>
-<ol>
-<li><code>git commit -m &quot;commit message here&quot;</code></li>
-<li><code>git push</code></li>
-<li><code>git commit --amend</code></li>
-<li><code>git push</code><br>
-报错如下：<br>
-<code>hint: Updates were rejected because the tip of your current branch is behind</code></li>
-</ol>
-<h3 id="解决方式">解决方式：</h3>
-<p>上述第4步使用<code>git push -f</code></p>
+              <h2 id="127001">127.0.0.1</h2>
+<p>属于环回地址，环回地址：所有发往该类地址的数据包都应该被loop back。<br><br>
+使用这个地址发送数据，则数据包不会出现在网络传输过程中。</p>
+<h4 id="用途">用途</h4>
+<ul>
+<li>测试某台机器上的网络设备，操作系统或者TCP/IP实现是否工作正常：ping 127.0.0.1</li>
+</ul>
+<h2 id="0000">0.0.0.0</h2>
+<ul>
+<li>在服务器中，0.0.0.0指的是本机上的所有IPV4地址</li>
+<li>在路由中，0.0.0.0表示的是默认路由，即当路由表中没有找到完全匹配的路由的时候所对应的路由。</li>
+</ul>
+<h4 id="用途-2">用途</h4>
+<ul>
+<li>如果主机有大小网两个IP，且主机上一个服务监听的地址为0.0.0.0，则两个IP均可访问该服务。</li>
+</ul>
+<h2 id="localhost">localhost</h2>
+<p>域名。默认指向127.0.0.1</p>
 
             </div>
             
@@ -576,7 +589,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/" title="git commit --amend修改commit信息后，push报错">https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/</a>
+      <a href="https://broholens.github.io/post/6387ia0vK/" title="127.0.0.1、localhost、0.0.0.0">https://broholens.github.io/post/6387ia0vK/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -585,21 +598,17 @@
   </ul>
   <div class="tags">
     
-      <a href="https://broholens.github.io/tag/d3mzgTxE2/"># git</a>
+      <a href="https://broholens.github.io/tag/0o5IblU3T/"># localhost</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="127.0.0.1、localhost、0.0.0.0" href="https://broholens.github.io/post/6387ia0vK/">127.0.0.1、localhost、0.0.0.0</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="127.0.0.1、localhost、0.0.0.0" href="https://broholens.github.io/post/6387ia0vK/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Hello Gridea" href="https://broholens.github.io/post/hello-gridea/">Hello Gridea</a>
-        <a class="nav-mobile-next" title="Hello Gridea" href="https://broholens.github.io/post/hello-gridea/">下一篇</a>
+        <a class="nav-pc-next" title="git commit --amend修改commit信息后，push报错" href="https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/">git commit --amend修改commit信息后，push报错</a>
+        <a class="nav-mobile-next" title="git commit --amend修改commit信息后，push报错" href="https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
