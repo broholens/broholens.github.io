@@ -9,7 +9,7 @@
 <meta name="description" content="这些都需要被记录">
 <meta name="theme-color" content="#000">
 <title>zz</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1591872530791">
+<link rel="shortcut icon" href="/favicon.ico?v=1591964197678">
 <link rel="stylesheet" href="/media/css/muse.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -153,19 +153,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -466,6 +466,129 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://broholens.github.io/post/8iPAZ5DIt/"" data-c="
+          &lt;p&gt;fake提供伪造数据，包括但不限于手机号、地址、user-agent、isbn、身份证号(ssn)、信用卡信息、文章段落&lt;br&gt;
+具体可以参考&lt;a href=&#34;https://faker.readthedocs.io/en/stable/providers.html#&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;fake实现逻辑&#34;&gt;fake实现逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;fake含有很多providers，每个provider用于提供一类fake数据。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;fake支持多种语言，所以每类fake数据均有多种不同语言的provider类。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成fake对象，映射过程中会通过指定/默认locale加载指定/全部的providers。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;每类fake数据都会提供一个Provider类(继承自BaseProvider)，这个Provider类提供本类数据的操作方法(如address类的city方法)，&lt;/li&gt;
+&lt;li&gt;每种语言都会继承此Provider类，数据均来自于每种语言的__init__.py中。&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;基本示例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; from faker import Faker
+&amp;gt;&amp;gt;&amp;gt; fake = Faker(locale=&amp;quot;zh_CN&amp;quot;)
+&amp;gt;&amp;gt;&amp;gt; fake.name_female()
+&#39;石红&#39;
+&amp;gt;&amp;gt;&amp;gt; fake.name_male()
+&#39;郭飞&#39;
+&amp;gt;&amp;gt;&amp;gt; fake.phone_number()
+&#39;13273633376&#39;
+&amp;gt;&amp;gt;&amp;gt; fake.safe_email()
+&#39;kzhu@example.net&#39;
+&amp;gt;&amp;gt;&amp;gt; fake.sentence()
+&#39;是否孩子事情公司解决.&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;创建自己的provider&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from faker import Faker
+fake = Faker()
+
+# first, import a similar Provider or use the default one
+from faker.providers import BaseProvider
+
+# create new provider class
+class MyProvider(BaseProvider):
+    def foo(self):
+        return &#39;bar&#39;
+
+# then add new provider to faker instance
+fake.add_provider(MyProvider)
+
+# now you can use:
+fake.foo()
+# &#39;bar&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;使用指定单词创建sentence&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from faker import Faker
+fake = Faker()
+
+my_word_list = [
+&#39;danish&#39;,&#39;cheesecake&#39;,&#39;sugar&#39;,
+&#39;Lollipop&#39;,&#39;wafer&#39;,&#39;Gummies&#39;,
+&#39;sesame&#39;,&#39;Jelly&#39;,&#39;beans&#39;,
+&#39;pie&#39;,&#39;bar&#39;,&#39;Ice&#39;,&#39;oat&#39; ]
+
+fake.sentence()
+# &#39;Expedita at beatae voluptatibus nulla omnis.&#39;
+
+fake.sentence(ext_word_list=my_word_list)
+# &#39;Oat beans oat Lollipop bar cheesecake.&#39;
+&lt;/code&gt;&lt;/pre&gt;
+">python fake</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://broholens.github.io/post/RhlpoFTTh/"" data-c="
+          &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;&amp;gt;&amp;gt;&amp;gt; from pathlib import Path
+&amp;gt;&amp;gt;&amp;gt; p = Path(&#39;.&#39;)
+
+# 列举目录
+&amp;gt;&amp;gt;&amp;gt; [x for x in p.iterdir() if x.is_dir()]
+[WindowsPath(&#39;.idea&#39;), WindowsPath(&#39;__pycache__&#39;)]
+
+# 列举文件
+&amp;gt;&amp;gt;&amp;gt; list(p.glob(&#39;**/*.py&#39;))
+[WindowsPath(&#39;debugger.py&#39;), WindowsPath(&#39;ssh_connection.py&#39;), WindowsPath(&#39;util.py&#39;), WindowsPath(&#39;__init__.py&#39;)]
+
+# 文件归属路径
+&amp;gt;&amp;gt;&amp;gt; p.cwd()
+WindowsPath(&#39;D:/ODAEDebugger/backend&#39;)
+
+# 文件绝对路径
+&amp;gt;&amp;gt;&amp;gt; p.resolve()
+WindowsPath(&#39;D:/ODAEDebugger/backend/util.py&#39;)
+
+# 文件/路径是否存在
+&amp;gt;&amp;gt;&amp;gt; p.exists()
+True
+
+# 是否是路径
+&amp;gt;&amp;gt;&amp;gt; p.is_file()
+True
+
+# 文件/路径stat
+&amp;gt;&amp;gt;&amp;gt; p.stat()
+os.stat_result(st_mode=33206, st_ino=13510798882280617, st_dev=1245727358, st_nlink=1, st_uid=0, st_gid=0, st_size=112, st_atime=1590832618, st_mtime=1590738985, st_ctime=1590738985)
+
+# 文件后缀与文件名
+&amp;gt;&amp;gt;&amp;gt; p.name
+&#39;util.py&#39;
+&amp;gt;&amp;gt;&amp;gt; p.suffix
+&#39;.py&#39;
+&amp;gt;&amp;gt;&amp;gt; p.stem
+&#39;util&#39;
+
+# 读写文件  函数内部已使用with open封装
+&amp;gt;&amp;gt;&amp;gt; p.read_text()
+&amp;quot;import json\n\n\ndef load_json_file(file_path):\n    with open(file_path, &#39;r&#39;)as f:\n        return json.load(f)&amp;quot;
+&amp;gt;&amp;gt;&amp;gt; p.write_text(&#39;aaa&#39;)
+3
+&amp;gt;&amp;gt;&amp;gt; p.read_text()
+&#39;aaa&#39;
+&lt;/code&gt;&lt;/pre&gt;
+">python pathlib</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://broholens.github.io/post/6387ia0vK/"" data-c="
