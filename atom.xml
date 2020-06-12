@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://broholens.github.io</id>
     <title>zz</title>
-    <updated>2020-06-12T12:45:36.715Z</updated>
+    <updated>2020-06-12T14:35:32.402Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://broholens.github.io"/>
     <link rel="self" href="https://broholens.github.io/atom.xml"/>
@@ -23,8 +23,8 @@
 <li>fake含有很多providers，每个provider用于提供一类fake数据。<br></li>
 <li>fake支持多种语言，所以每类fake数据均有多种不同语言的provider类。<br></li>
 <li>调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成fake对象，映射过程中会通过指定/默认locale加载指定/全部的providers。<br></li>
-<li>每类fake数据都会提供一个Provider类(继承自BaseProvider)，这个Provider类提供本类数据的操作方法(如address类的city方法)，</li>
-<li>每种语言都会继承此Provider类，数据均来自于每种语言的__init__.py中。<br><br></li>
+<li>每类fake数据都会提供一个Provider类(继承自BaseProvider)，这个Provider类提供本类数据的操作方法(如address类的city方法)，每种语言都会继承此Provider类，数据均来自于每种语言的__init__.py中。<br>
+<br></li>
 </ul>
 <h3 id="示例">示例</h3>
 <ul>

@@ -9,7 +9,7 @@
 <meta name="description" content="这些都需要被记录">
 <meta name="theme-color" content="#000">
 <title>zz</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1591964197678">
+<link rel="shortcut icon" href="/favicon.ico?v=1591972529880">
 <link rel="stylesheet" href="/media/css/muse.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -468,8 +468,8 @@
 &lt;li&gt;fake含有很多providers，每个provider用于提供一类fake数据。&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;fake支持多种语言，所以每类fake数据均有多种不同语言的provider类。&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成fake对象，映射过程中会通过指定/默认locale加载指定/全部的providers。&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;每类fake数据都会提供一个Provider类(继承自BaseProvider)，这个Provider类提供本类数据的操作方法(如address类的city方法)，&lt;/li&gt;
-&lt;li&gt;每种语言都会继承此Provider类，数据均来自于每种语言的__init__.py中。&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;每类fake数据都会提供一个Provider类(继承自BaseProvider)，这个Provider类提供本类数据的操作方法(如address类的city方法)，每种语言都会继承此Provider类，数据均来自于每种语言的__init__.py中。&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;
 &lt;ul&gt;
