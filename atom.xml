@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://broholens.github.io</id>
     <title>zz</title>
-    <updated>2020-06-12T14:35:32.402Z</updated>
+    <updated>2020-06-16T15:44:36.677Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://broholens.github.io"/>
     <link rel="self" href="https://broholens.github.io/atom.xml"/>
@@ -11,18 +11,42 @@
     <icon>https://broholens.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zz</rights>
     <entry>
-        <title type="html"><![CDATA[python fake]]></title>
+        <title type="html"><![CDATA[发布包到PyPI]]></title>
+        <id>https://broholens.github.io/post/P5yl4XkPx/</id>
+        <link href="https://broholens.github.io/post/P5yl4XkPx/">
+        </link>
+        <updated>2020-06-16T15:20:34.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="前提">前提：</h2>
+<ul>
+<li>已在<a href="https://pypi.org/account/register/">PyPI</a>上注册账号</li>
+<li>github上已准备好待发布包</li>
+<li>已安装twine、wheel等包  <code>pip install twine wheel</code></li>
+</ul>
+<h2 id="发布流程">发布流程</h2>
+<ol>
+<li><strong>编写setup.py</strong>，可参考<a href="https://github.com/navdeep-G/setup.py">此项目</a>或<a href="https://github.com/broholens/pyfunctions">此项目</a></li>
+<li><strong>打包并上传至PyPI</strong>，执行<code>setup.py upload</code>，需要输入PyPI账号及密码。</li>
+<li>上传成功后如果pip使用非PyPI源需要等一段同步时间，方可使用<code>pip install</code>下载，或更改pip源为PyPI下载</li>
+</ol>
+<h2 id="常见问题">常见问题</h2>
+<ol>
+<li><a href="https://yq.aliyun.com/articles/644640">bdist_wheel报错</a></li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python faker]]></title>
         <id>https://broholens.github.io/post/8iPAZ5DIt/</id>
         <link href="https://broholens.github.io/post/8iPAZ5DIt/">
         </link>
         <updated>2020-06-12T12:15:37.000Z</updated>
-        <content type="html"><![CDATA[<p>fake提供伪造数据，包括但不限于手机号、地址、user-agent、isbn、身份证号(ssn)、信用卡信息、文章段落<br>
+        <content type="html"><![CDATA[<p>faker提供伪造数据，包括但不限于手机号、地址、user-agent、isbn、身份证号(ssn)、信用卡信息、文章段落<br>
 具体可以参考<a href="https://faker.readthedocs.io/en/stable/providers.html#">官方文档</a></p>
-<h3 id="fake实现逻辑">fake实现逻辑</h3>
+<h3 id="faker实现逻辑">faker实现逻辑</h3>
 <ul>
-<li>fake含有很多providers，每个provider用于提供一类fake数据。<br></li>
-<li>fake支持多种语言，所以每类fake数据均有多种不同语言的provider类。<br></li>
-<li>调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成fake对象，映射过程中会通过指定/默认locale加载指定/全部的providers。<br></li>
+<li>faker含有很多providers，每个provider用于提供一类fake数据。<br></li>
+<li>faker支持多种语言，所以每类fake数据均有多种不同语言的provider类。<br></li>
+<li>调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成faker对象，映射过程中会通过指定/默认locale加载指定/全部的providers。<br></li>
 <li>每类fake数据都会提供一个Provider类(继承自BaseProvider)，这个Provider类提供本类数据的操作方法(如address类的city方法)，每种语言都会继承此Provider类，数据均来自于每种语言的__init__.py中。<br>
 <br></li>
 </ul>

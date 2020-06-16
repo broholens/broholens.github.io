@@ -8,8 +8,8 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="这些都需要被记录">
 <meta name="theme-color" content="#000">
-<title>python fake | zz</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1591972529880">
+<title>python faker | zz</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1592322272331">
 <link rel="stylesheet" href="/media/css/muse.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="python fake" />
-  <meta name="keywords" content="fake" />
+  <meta name="description" content="python faker" />
+  <meta name="keywords" content="faker" />
 </head>
 
 <body>
@@ -171,19 +171,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">5</span>
+        <span class="site-item-stat-count">6</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">5</span>
+        <span class="site-item-stat-count">7</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">5</span>
+        <span class="site-item-stat-count">7</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -219,7 +219,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#fake%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91">fake实现逻辑</a></li>
+<li><a href="#faker%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91">faker实现逻辑</a></li>
 <li><a href="#%E7%A4%BA%E4%BE%8B">示例</a></li>
 </ul>
 </li>
@@ -491,7 +491,7 @@
             <header class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://broholens.github.io/post/8iPAZ5DIt/">
-      python fake
+      python faker
     </a>
   </h1>
   <div class="post-meta">
@@ -508,8 +508,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://broholens.github.io/tag/GoPLgQxP8/">
-        <span>fake</span>
+      <a href="https://broholens.github.io/tag/gqisba9_x/">
+        <span>faker</span>
       </a>
       
       
@@ -528,7 +528,7 @@
     
     
     
-    <span id="/post/8iPAZ5DIt/" data-flag-title="python fake" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/8iPAZ5DIt/" data-flag-title="python faker" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -537,13 +537,13 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>fake提供伪造数据，包括但不限于手机号、地址、user-agent、isbn、身份证号(ssn)、信用卡信息、文章段落<br>
+              <p>faker提供伪造数据，包括但不限于手机号、地址、user-agent、isbn、身份证号(ssn)、信用卡信息、文章段落<br>
 具体可以参考<a href="https://faker.readthedocs.io/en/stable/providers.html#">官方文档</a></p>
-<h3 id="fake实现逻辑">fake实现逻辑</h3>
+<h3 id="faker实现逻辑">faker实现逻辑</h3>
 <ul>
-<li>fake含有很多providers，每个provider用于提供一类fake数据。<br></li>
-<li>fake支持多种语言，所以每类fake数据均有多种不同语言的provider类。<br></li>
-<li>调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成fake对象，映射过程中会通过指定/默认locale加载指定/全部的providers。<br></li>
+<li>faker含有很多providers，每个provider用于提供一类fake数据。<br></li>
+<li>faker支持多种语言，所以每类fake数据均有多种不同语言的provider类。<br></li>
+<li>调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成faker对象，映射过程中会通过指定/默认locale加载指定/全部的providers。<br></li>
 <li>每类fake数据都会提供一个Provider类(继承自BaseProvider)，这个Provider类提供本类数据的操作方法(如address类的city方法)，每种语言都会继承此Provider类，数据均来自于每种语言的__init__.py中。<br>
 <br></li>
 </ul>
@@ -619,7 +619,7 @@ fake.sentence(ext_word_list=my_word_list)
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://broholens.github.io/post/8iPAZ5DIt/" title="python fake">https://broholens.github.io/post/8iPAZ5DIt/</a>
+      <a href="https://broholens.github.io/post/8iPAZ5DIt/" title="python faker">https://broholens.github.io/post/8iPAZ5DIt/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -628,11 +628,15 @@ fake.sentence(ext_word_list=my_word_list)
   </ul>
   <div class="tags">
     
-      <a href="https://broholens.github.io/tag/GoPLgQxP8/"># fake</a>
+      <a href="https://broholens.github.io/tag/gqisba9_x/"># faker</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="发布包到PyPI" href="https://broholens.github.io/post/P5yl4XkPx/">发布包到PyPI</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="发布包到PyPI" href="https://broholens.github.io/post/P5yl4XkPx/">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -1136,14 +1140,35 @@ fake.sentence(ext_word_list=my_word_list)
     <div class="result" id="result">
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://broholens.github.io/post/8iPAZ5DIt/"" data-c="
-          &lt;p&gt;fake提供伪造数据，包括但不限于手机号、地址、user-agent、isbn、身份证号(ssn)、信用卡信息、文章段落&lt;br&gt;
-具体可以参考&lt;a href=&#34;https://faker.readthedocs.io/en/stable/providers.html#&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;fake实现逻辑&#34;&gt;fake实现逻辑&lt;/h3&gt;
+        <a class="result-title" style="opacity: 0;" href="https://broholens.github.io/post/P5yl4XkPx/"" data-c="
+          &lt;h2 id=&#34;前提&#34;&gt;前提：&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;fake含有很多providers，每个provider用于提供一类fake数据。&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;fake支持多种语言，所以每类fake数据均有多种不同语言的provider类。&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成fake对象，映射过程中会通过指定/默认locale加载指定/全部的providers。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;已在&lt;a href=&#34;https://pypi.org/account/register/&#34;&gt;PyPI&lt;/a&gt;上注册账号&lt;/li&gt;
+&lt;li&gt;github上已准备好待发布包&lt;/li&gt;
+&lt;li&gt;已安装twine、wheel等包  &lt;code&gt;pip install twine wheel&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;发布流程&#34;&gt;发布流程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;编写setup.py&lt;/strong&gt;，可参考&lt;a href=&#34;https://github.com/navdeep-G/setup.py&#34;&gt;此项目&lt;/a&gt;或&lt;a href=&#34;https://github.com/broholens/pyfunctions&#34;&gt;此项目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;打包并上传至PyPI&lt;/strong&gt;，执行&lt;code&gt;setup.py upload&lt;/code&gt;，需要输入PyPI账号及密码。&lt;/li&gt;
+&lt;li&gt;上传成功后如果pip使用非PyPI源需要等一段同步时间，方可使用&lt;code&gt;pip install&lt;/code&gt;下载，或更改pip源为PyPI下载&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;常见问题&#34;&gt;常见问题&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://yq.aliyun.com/articles/644640&#34;&gt;bdist_wheel报错&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+">发布包到PyPI</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://broholens.github.io/post/8iPAZ5DIt/"" data-c="
+          &lt;p&gt;faker提供伪造数据，包括但不限于手机号、地址、user-agent、isbn、身份证号(ssn)、信用卡信息、文章段落&lt;br&gt;
+具体可以参考&lt;a href=&#34;https://faker.readthedocs.io/en/stable/providers.html#&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;faker实现逻辑&#34;&gt;faker实现逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;faker含有很多providers，每个provider用于提供一类fake数据。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;faker支持多种语言，所以每类fake数据均有多种不同语言的provider类。&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成faker对象，映射过程中会通过指定/默认locale加载指定/全部的providers。&lt;br&gt;&lt;/li&gt;
 &lt;li&gt;每类fake数据都会提供一个Provider类(继承自BaseProvider)，这个Provider类提供本类数据的操作方法(如address类的city方法)，每种语言都会继承此Provider类，数据均来自于每种语言的__init__.py中。&lt;br&gt;
 &lt;br&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1203,7 +1228,7 @@ fake.sentence()
 fake.sentence(ext_word_list=my_word_list)
 # &#39;Oat beans oat Lollipop bar cheesecake.&#39;
 &lt;/code&gt;&lt;/pre&gt;
-">python fake</a>
+">python faker</a>
       </div>
       
       <div class="item">
