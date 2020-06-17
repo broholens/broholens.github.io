@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://broholens.github.io</id>
     <title>zz</title>
-    <updated>2020-06-17T12:18:43.249Z</updated>
+    <updated>2020-06-17T12:27:18.163Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://broholens.github.io"/>
     <link rel="self" href="https://broholens.github.io/atom.xml"/>
@@ -29,7 +29,6 @@
 <ol>
 <li><strong>编写setup.py</strong>，可参考<a href="https://github.com/navdeep-G/setup.py">此项目</a>或<a href="https://github.com/broholens/pyfunctions">此项目</a></li>
 <li><strong>打包并上传至PyPI</strong>，执行<code>setup.py upload</code>，需要输入PyPI账号及密码。</li>
-<li>上传成功后如果pip使用非PyPI源需要等一段同步时间，方可使用<code>pip install</code>下载，或更改pip源为PyPI下载</li>
 </ol>
 <h1 id="方案二github-actions">方案二：GitHub Actions</h1>
 <p>GitHub Actions提供持续集成能力，可以用来在每次push/release时，自动打包并上传到PyPI。<br>
@@ -43,6 +42,7 @@
 <h5 id="step-3配置pypi_username及pypi_password">Step 3：配置PYPI_USERNAME及PYPI_PASSWORD</h5>
 <figure data-type="image" tabindex="2"><img src="https://broholens.github.io/post-images/1592396117747.png" alt="" loading="lazy"></figure>
 <p>这样每次在release的时候，就会自动打包并上传到PyPI了。</p>
+<p>🚦 上传成功后如果pip使用非PyPI源需要等一段同步时间，方可使用<code>pip install</code>下载；或更改pip源为PyPI下载。eg：<code>pip install pyfunctions==2020.6.17.11.52.7 -i https://pypi.python.org/simple</code></p>
 <h3 id="thanks-to">Thanks To</h3>
 <ol>
 <li><a href="https://yq.aliyun.com/articles/644640">bdist_wheel报错</a></li>
