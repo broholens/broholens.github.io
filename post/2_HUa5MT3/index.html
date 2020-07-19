@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="这些都需要被记录">
 <meta name="theme-color" content="#000">
-<title>git commit --amend修改commit信息后，push报错 | zz</title>
+<title>牢笼 | zz</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1595154098606">
 <link rel="stylesheet" href="/media/css/muse.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="git commit --amend修改commit信息后，push报错" />
-  <meta name="keywords" content="git" />
+  <meta name="description" content="牢笼" />
+  <meta name="keywords" content="想法" />
 </head>
 
 <body>
@@ -150,8 +150,7 @@
       <div class="sidebar-body muse" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -209,200 +208,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E6%83%85%E6%99%AF%E5%A4%8D%E7%8E%B0">情景复现</a></li>
-<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F">解决方式：</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -490,8 +295,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/">
-      git commit --amend修改commit信息后，push报错
+    <a class="post-title-link" href="https://broholens.github.io/post/2_HUa5MT3/">
+      牢笼
     </a>
   </h1>
   <div class="post-meta">
@@ -499,7 +304,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-06-11</span>
+      <span>2020-07-19</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -508,8 +313,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://broholens.github.io/tag/d3mzgTxE2/">
-        <span>git</span>
+      <a href="https://broholens.github.io/tag/WwrPHNvnn/">
+        <span>想法</span>
       </a>
       
       
@@ -518,17 +323,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>62<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>814<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/" data-flag-title="git commit --amend修改commit信息后，push报错" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/2_HUa5MT3/" data-flag-title="牢笼" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -537,18 +342,16 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h3 id="情景复现">情景复现</h3>
-<p>commit并push到远端的情况下修改commit信息</p>
-<ol>
-<li><code>git commit -m &quot;commit message here&quot;</code></li>
-<li><code>git push</code></li>
-<li><code>git commit --amend</code></li>
-<li><code>git push</code><br>
-报错如下：<br>
-<code>hint: Updates were rejected because the tip of your current branch is behind</code></li>
-</ol>
-<h3 id="解决方式">解决方式：</h3>
-<p>上述第4步使用<code>git push -f</code></p>
+              <p>我困在一个牢笼里，这个牢笼像甜甜圈做成的，兜兜转转，是原点。</p>
+<p>实不相瞒，我曾尝试过千万次挣脱这个牢笼，结果只是徒劳。5月23日，我拖了地，把马桶盖和洗手池擦得锃亮；床单扔进洗衣机，短袖和袜子手洗了。拉开窗帘打开窗，看着远处的秦岭——黑色的山，上面点缀着几片云——有一种声音在胸腔呼之欲出：我会跟从前不一样的！</p>
+<p>结果？结果就是这个周末，做完上面的事情后，我盯着冠捷显示屏，用varmilo键盘敲下这些字。我又走了一圈。我又将重新开始。</p>
+<p>在之前的很长时间里，我都无法跳出去，所以便开始为这个牢笼正名。正名是这个世界上最扯淡的事情，你只需要自说自话，或者说自欺欺人。什么自由啦、生活啦、现在的年轻人啦、大不了啦、无所谓啦，只要你想往里加，都可以加进去。从此便过上了一种舒适且心安的日子：早上慌忙起床上班，上着扯来扯去的班，写着毫无意义的代码，用生命打一局又一局的游戏，躺在床上和手机里。</p>
+<p>但又开始察觉到不对劲了，因为某天有人在我耳旁说了一句：不能再这么吊儿郎当了。尽管知道这话不是说给我听的，但既然听到了，就从脑子里过了一遍。发现自己不仅上有二老、有婚要结，还有房贷要还。我想，如果他还要继续说的话，下一句一定是：你要好好挣钱攒钱。不可否认，这句话是不过时且正确的。既然是正确的，我就该做点儿事情，于是我决定换个发型，以此作为标志性事件，方便后人传颂。同时立马回家卸载了游戏，开始翻看几个月前的令人费解的老旧代码，并买了几本关于人类的书。</p>
+<p>关于这次改变，结果是令人沮丧的。但值得欣慰的是，那几本尚未拆封的书送人也不赖。</p>
+<p>经历过上次的失败，我清楚了这样的改变微不足道，未来一定会有一场大的变动，大到可以打破这牢笼。于是在变动未发生之前，我便开始了期待。其中的一个版本是这样的：我经历了某种大的祸患，比如车祸，小了上不了台面，须是那种断胳膊断腿的。说实话，每当想到这里的时候我都会兴奋异常，因为我坚信，我的人生将从此改变——无论是好是坏。</p>
+<p>但后来我认识到这样的幻想是不负责任的，因为我是个受引用的变量——有人还在依赖我——尽管我非常清楚：没有谁离不开谁，人们会伤心一小会儿，毕竟祥林嫂是小说里的人物。换句话说，我得想个其他改变的方式。可是我现在编不下去了，所以</p>
+<!-- more -->
+<p>有时间再更新。</p>
 
             </div>
             
@@ -565,7 +368,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/" title="git commit --amend修改commit信息后，push报错">https://broholens.github.io/post/git-commit-amend-xiu-gai-commit-xin-xi-hou-push-bao-cuo/</a>
+      <a href="https://broholens.github.io/post/2_HUa5MT3/" title="牢笼">https://broholens.github.io/post/2_HUa5MT3/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -574,21 +377,17 @@
   </ul>
   <div class="tags">
     
-      <a href="https://broholens.github.io/tag/d3mzgTxE2/"># git</a>
+      <a href="https://broholens.github.io/tag/WwrPHNvnn/"># 想法</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="127.0.0.1、localhost、0.0.0.0" href="https://broholens.github.io/post/6387ia0vK/">127.0.0.1、localhost、0.0.0.0</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="127.0.0.1、localhost、0.0.0.0" href="https://broholens.github.io/post/6387ia0vK/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Hello Gridea" href="https://broholens.github.io/post/hello-gridea/">Hello Gridea</a>
-        <a class="nav-mobile-next" title="Hello Gridea" href="https://broholens.github.io/post/hello-gridea/">下一篇</a>
+        <a class="nav-pc-next" title="发布包到PyPI" href="https://broholens.github.io/post/P5yl4XkPx/">发布包到PyPI</a>
+        <a class="nav-mobile-next" title="发布包到PyPI" href="https://broholens.github.io/post/P5yl4XkPx/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
