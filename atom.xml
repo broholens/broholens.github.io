@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://broholens.github.io</id>
     <title>zz</title>
-    <updated>2020-07-19T10:32:10.854Z</updated>
+    <updated>2020-07-20T16:19:47.814Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://broholens.github.io"/>
     <link rel="self" href="https://broholens.github.io/atom.xml"/>
@@ -10,6 +10,42 @@
     <logo>https://broholens.github.io/images/avatar.png</logo>
     <icon>https://broholens.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zz</rights>
+    <entry>
+        <title type="html"><![CDATA[人类简史]]></title>
+        <id>https://broholens.github.io/post/gsJOcOPhl/</id>
+        <link href="https://broholens.github.io/post/gsJOcOPhl/">
+        </link>
+        <updated>2020-07-20T15:55:55.000Z</updated>
+        <content type="html"><![CDATA[<p>作者：尤瓦尔·赫拉利</p>
+<p><strong>第一章   人类：一种也没什么特别的动物</strong></p>
+<p>物种和属：</p>
+<pre><code>同一物种：彼此交配，且能够产出下一代。马和驴
+同一属：同一祖先演化而来的不同物种。狮子和老虎
+</code></pre>
+<p>大脑：</p>
+<pre><code>人类大脑明显大于其他动物；大脑结构脆弱，消耗能量惊人。
+</code></pre>
+<p>直立行走：</p>
+<pre><code>于是人类的手开始能够处理非常精细的任务，特别是能够生产、使用复杂的工具。
+使妇女产道宽度受限...自然选择使生产提前，与其他动物相比，人类都是早产儿，许多重要器官发育不够完善。
+</code></pre>
+<p>社交的来源：</p>
+<pre><code>独自一人的母亲拖着孩子难以获取足够的食物。
+</code></pre>
+<p>人类崛起：</p>
+<pre><code>直到十万年前智人崛起，人类才一跃居于食物链顶端。
+人类转眼就登上顶端，不仅让生态系统猝不及防，就连人类自己也不知所措。人类历史的众多灾难，无论是生灵涂炭的战争还是生态遭遇的浩劫，其实都源自这场过于仓促的地位跳跃。
+</code></pre>
+<p>使用火：</p>
+<pre><code>杀死寄生虫和病菌、所需要咀嚼和消化的时间也能大幅减少。
+烹饪技术的发展与人体肠道缩短、大脑开始发育有直接关系。
+</code></pre>
+<p>其他人种的灭绝：</p>
+<pre><code>“替代理论”比“混种繁衍理论”更加政治正确。
+现实的生物界限并不是非黑即白，而是由重要的灰色地带。
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[牢笼]]></title>
         <id>https://broholens.github.io/post/2_HUa5MT3/</id>
