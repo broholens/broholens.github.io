@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="这些都需要被记录">
 <meta name="theme-color" content="#000">
-<title>python faker | zz</title>
+<title>信任的边界 | zz</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1595866725282">
 <link rel="stylesheet" href="/media/css/muse.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="python faker" />
-  <meta name="keywords" content="faker" />
+  <meta name="description" content="信任的边界" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -150,8 +150,7 @@
       <div class="sidebar-body muse" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -209,200 +208,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#faker%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91">faker实现逻辑</a></li>
-<li><a href="#%E7%A4%BA%E4%BE%8B">示例</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -490,8 +295,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://broholens.github.io/post/8iPAZ5DIt/">
-      python faker
+    <a class="post-title-link" href="https://broholens.github.io/post/yXzaO5vHg/">
+      信任的边界
     </a>
   </h1>
   <div class="post-meta">
@@ -499,22 +304,9 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-06-12</span>
+      <span>2020-07-27</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://broholens.github.io/tag/gqisba9_x/">
-        <span>faker</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
@@ -523,12 +315,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>380<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>479<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/8iPAZ5DIt/" data-flag-title="python faker" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/yXzaO5vHg/" data-flag-title="信任的边界" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -537,72 +329,25 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>faker提供伪造数据，包括但不限于手机号、地址、user-agent、isbn、身份证号(ssn)、信用卡信息、文章段落<br>
-具体可以参考<a href="https://faker.readthedocs.io/en/stable/providers.html#">官方文档</a></p>
-<h3 id="faker实现逻辑">faker实现逻辑</h3>
-<ul>
-<li>faker含有很多providers，每个provider用于提供一类fake数据。<br></li>
-<li>faker支持多种语言，所以每类fake数据均有多种不同语言的provider类。<br></li>
-<li>调用时首先通过proxy.py解析locale，支持在初始化时指定多个locale，然后将其他参数映射到factory.py生成faker对象，映射过程中会通过指定/默认locale加载指定/全部的providers。<br></li>
-<li>每类fake数据都会提供一个Provider类(继承自BaseProvider)，这个Provider类提供本类数据的操作方法(如address类的city方法)，每种语言都会继承此Provider类，数据均来自于每种语言的__init__.py中。<br>
-<br></li>
-</ul>
-<h3 id="示例">示例</h3>
-<ul>
-<li>基本示例</li>
-</ul>
-<pre><code class="language-python">&gt;&gt;&gt; from faker import Faker
-&gt;&gt;&gt; fake = Faker(locale=&quot;zh_CN&quot;)
-&gt;&gt;&gt; fake.name_female()
-'石红'
-&gt;&gt;&gt; fake.name_male()
-'郭飞'
-&gt;&gt;&gt; fake.phone_number()
-'13273633376'
-&gt;&gt;&gt; fake.safe_email()
-'kzhu@example.net'
-&gt;&gt;&gt; fake.sentence()
-'是否孩子事情公司解决.'
-</code></pre>
-<ul>
-<li>创建自己的provider</li>
-</ul>
-<pre><code class="language-python">from faker import Faker
-fake = Faker()
-
-# first, import a similar Provider or use the default one
-from faker.providers import BaseProvider
-
-# create new provider class
-class MyProvider(BaseProvider):
-    def foo(self):
-        return 'bar'
-
-# then add new provider to faker instance
-fake.add_provider(MyProvider)
-
-# now you can use:
-fake.foo()
-# 'bar'
-</code></pre>
-<ul>
-<li>使用指定单词创建sentence</li>
-</ul>
-<pre><code class="language-python">from faker import Faker
-fake = Faker()
-
-my_word_list = [
-'danish','cheesecake','sugar',
-'Lollipop','wafer','Gummies',
-'sesame','Jelly','beans',
-'pie','bar','Ice','oat' ]
-
-fake.sentence()
-# 'Expedita at beatae voluptatibus nulla omnis.'
-
-fake.sentence(ext_word_list=my_word_list)
-# 'Oat beans oat Lollipop bar cheesecake.'
-</code></pre>
+              <p>今天下班的时候，被一位中年大叔叫住。大叔描述自己从外地来西安出差，手机落在出租车上了，已经关机。已经报警，警察给的措施是送到救济站，自己拒绝了。然后借我手机给秘书打了电话，通话1分25秒，内容大致如下：</p>
+<ol>
+<li>描述自己手机丢失。</li>
+<li>明天还有重要会议。</li>
+<li>让秘书订一张机票过来。</li>
+</ol>
+<p>通话期间递给我中华烟（以不抽烟为由拒绝），通话完后，询问我在哪儿住（表明合租，暗示不方便）、能不能借他去机场的路费（以身上没带现金为由拒绝），在得到拒绝后询问我能否在便利店换取现金。上面的请求均遭到了我的拒绝后他表示再问问其他人。</p>
+<p>走了一段时间后，内心也挺挣扎的——如果换做是我在陌生的地方丢手机呢——这是我性格的软肋。现在想来，这起事件有太多疑点，谎言几乎流于表面了，但身处其中时却并未考虑到这些。</p>
+<ol>
+<li>请秘书联系出差对接的人过来接一下自己不行吗？</li>
+<li>去机场完全可以请我帮忙叫滴滴，为何非要现金？</li>
+<li>为何在报警的时候不借警察手机通知秘书？</li>
+</ol>
+<p>纵观整个事件，我的损失有：</p>
+<ol>
+<li>泄露了手机号</li>
+<li>事件过程耽误了10分钟左右时间</li>
+</ol>
+<p>目前为止，我已经判定这次对话他是不怀好意的。于是很愤懑：这些人为了蝇头小利一次次消磨人与人之间的信任，实在可恶。但是下次面对陌生人的求助时，是该耐心听完并慷慨解囊呢，还是不给TA诉说的机会？恐怕我们能做的和警察一样多！</p>
 
             </div>
             
@@ -619,7 +364,7 @@ fake.sentence(ext_word_list=my_word_list)
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://broholens.github.io/post/8iPAZ5DIt/" title="python faker">https://broholens.github.io/post/8iPAZ5DIt/</a>
+      <a href="https://broholens.github.io/post/yXzaO5vHg/" title="信任的边界">https://broholens.github.io/post/yXzaO5vHg/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -628,21 +373,15 @@ fake.sentence(ext_word_list=my_word_list)
   </ul>
   <div class="tags">
     
-      <a href="https://broholens.github.io/tag/gqisba9_x/"># faker</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="发布包到PyPI" href="https://broholens.github.io/post/P5yl4XkPx/">发布包到PyPI</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="发布包到PyPI" href="https://broholens.github.io/post/P5yl4XkPx/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="python pathlib" href="https://broholens.github.io/post/RhlpoFTTh/">python pathlib</a>
-        <a class="nav-mobile-next" title="python pathlib" href="https://broholens.github.io/post/RhlpoFTTh/">下一篇</a>
+        <a class="nav-pc-next" title="人类简史" href="https://broholens.github.io/post/gsJOcOPhl/">人类简史</a>
+        <a class="nav-mobile-next" title="人类简史" href="https://broholens.github.io/post/gsJOcOPhl/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
